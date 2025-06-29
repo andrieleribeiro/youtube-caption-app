@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de Legenda</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    textarea { width: 100%; height: 400px; margin-top: 10px; }
+    .erro { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Extração de Legendas do YouTube</h1>
+  <form method="post">
+    <label for="url">URL do vídeo do YouTube:</label><br>
+    <input type="text" name="url" id="url" style="width: 100%; padding: 8px;" required><br><br>
+    <input type="submit" value="Gerar legenda">
+  </form>
+
+  {% if erro %}
+    <p class="erro">Erro: {{ erro }}</p>
+  {% endif %}
+
+  {% if legenda %}
+    <h2>Legenda:</h2>
+    <textarea readonly onclick="this.select();document.execCommand('copy')">{{ legenda }}</textarea>
+    <p>Texto copiado ao clicar na caixa.</p>
+  {% endif %}
+</body>
+</html>
