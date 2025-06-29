@@ -64,6 +64,7 @@ def index():
         else:
             try:
                 lista = listar_legendas(url)
+                print(lista)  # Adicione esta linha
                 prioridade = ['pt', 'pt-BR', 'pt-orig', 'pt-PT', 'en']
                 idioma_encontrado = next((lang for lang in prioridade if f'\n{lang}' in lista or f' {lang} ' in lista), None)
                 if not idioma_encontrado:
